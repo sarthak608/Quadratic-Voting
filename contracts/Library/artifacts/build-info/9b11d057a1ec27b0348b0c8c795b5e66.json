@@ -1,0 +1,1465 @@
+{
+	"id": "9b11d057a1ec27b0348b0c8c795b5e66",
+	"_format": "hh-sol-build-info-1",
+	"solcVersion": "0.8.7",
+	"solcLongVersion": "0.8.7+commit.e28d00a7",
+	"input": {
+		"language": "Solidity",
+		"sources": {
+			"Library/UserProposalLibrary.sol": {
+				"content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.0;\r\n\r\nlibrary UserProposalLibrary{\r\n    struct UserProposal{\r\n    \r\n    // createCount\r\n    uint128 proposalCount;\r\n\r\n    // resposeCount\r\n    uint128 responseCount;\r\n\r\n     // poll creation property\r\n    mapping(uint128 => uint) proposalCreated; \r\n    \r\n    // poll response property\r\n    mapping(uint128 => uint) proposalResponsed; // response kis pollId par aaya hain\r\n    mapping(uint => string) proposalAnswer; //pollId => answerHash  \r\n    mapping(uint => bool) responsedProposal; \r\n\r\n    }\r\n    function updateProposalList(UserProposal storage self, uint _proposalId) internal returns(bool){\r\n        self.proposalCount++;\r\n        self.proposalCreated[self.proposalCount] = _proposalId;\r\n        return true;\r\n    }\r\n\r\n    function updateResponseList(UserProposal storage self, uint _proposalId, string memory _hash) internal returns(bool){\r\n        self.responseCount++;  \r\n        self.proposalResponsed[self.responseCount] = _proposalId;\r\n        self.proposalAnswer[_proposalId] = _hash;\r\n        self.responsedProposal[_proposalId] = true;\r\n        return true;\r\n    }\r\n\r\n\r\n}"
+			}
+		},
+		"settings": {
+			"optimizer": {
+				"enabled": false,
+				"runs": 200
+			},
+			"outputSelection": {
+				"*": {
+					"": [
+						"ast"
+					],
+					"*": [
+						"abi",
+						"metadata",
+						"devdoc",
+						"userdoc",
+						"storageLayout",
+						"evm.legacyAssembly",
+						"evm.bytecode",
+						"evm.deployedBytecode",
+						"evm.methodIdentifiers",
+						"evm.gasEstimates",
+						"evm.assembly"
+					]
+				}
+			}
+		}
+	},
+	"output": {
+		"contracts": {
+			"Library/UserProposalLibrary.sol": {
+				"UserProposalLibrary": {
+					"abi": [],
+					"devdoc": {
+						"kind": "dev",
+						"methods": {},
+						"version": 1
+					},
+					"evm": {
+						"assembly": "    /* \"Library/UserProposalLibrary.sol\":60:1142  library UserProposalLibrary{\r... */\n  dataSize(sub_0)\n  dataOffset(sub_0)\n  0x0b\n  dup3\n  dup3\n  dup3\n  codecopy\n  dup1\n  mload\n  0x00\n  byte\n  0x73\n  eq\n  tag_1\n  jumpi\n  mstore(0x00, 0x4e487b7100000000000000000000000000000000000000000000000000000000)\n  mstore(0x04, 0x00)\n  revert(0x00, 0x24)\ntag_1:\n  mstore(0x00, address)\n  0x73\n  dup2\n  mstore8\n  dup3\n  dup2\n  return\nstop\n\nsub_0: assembly {\n        /* \"Library/UserProposalLibrary.sol\":60:1142  library UserProposalLibrary{\r... */\n      eq(address, deployTimeAddress())\n      mstore(0x40, 0x80)\n      0x00\n      dup1\n      revert\n\n    auxdata: 0xa264697066735822122079b16bd090f9e03f6964265fa12ef728dceb276ee1e4403e4016ec793f72e72364736f6c63430008070033\n}\n",
+						"bytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"linkReferences": {},
+							"object": "60566050600b82828239805160001a6073146043577f4e487b7100000000000000000000000000000000000000000000000000000000600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122079b16bd090f9e03f6964265fa12ef728dceb276ee1e4403e4016ec793f72e72364736f6c63430008070033",
+							"opcodes": "PUSH1 0x56 PUSH1 0x50 PUSH1 0xB DUP3 DUP3 DUP3 CODECOPY DUP1 MLOAD PUSH1 0x0 BYTE PUSH1 0x73 EQ PUSH1 0x43 JUMPI PUSH32 0x4E487B7100000000000000000000000000000000000000000000000000000000 PUSH1 0x0 MSTORE PUSH1 0x0 PUSH1 0x4 MSTORE PUSH1 0x24 PUSH1 0x0 REVERT JUMPDEST ADDRESS PUSH1 0x0 MSTORE PUSH1 0x73 DUP2 MSTORE8 DUP3 DUP2 RETURN INVALID PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH26 0xB16BD090F9E03F6964265FA12EF728DCEB276EE1E4403E4016EC PUSH26 0x3F72E72364736F6C634300080700330000000000000000000000 ",
+							"sourceMap": "60:1082:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;"
+						},
+						"deployedBytecode": {
+							"functionDebugData": {},
+							"generatedSources": [],
+							"immutableReferences": {},
+							"linkReferences": {},
+							"object": "73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122079b16bd090f9e03f6964265fa12ef728dceb276ee1e4403e4016ec793f72e72364736f6c63430008070033",
+							"opcodes": "PUSH20 0x0 ADDRESS EQ PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 PUSH26 0xB16BD090F9E03F6964265FA12EF728DCEB276EE1E4403E4016EC PUSH26 0x3F72E72364736F6C634300080700330000000000000000000000 ",
+							"sourceMap": "60:1082:0:-:0;;;;;;;;"
+						},
+						"gasEstimates": {
+							"creation": {
+								"codeDepositCost": "17200",
+								"executionCost": "97",
+								"totalCost": "17297"
+							},
+							"internal": {
+								"updateProposalList(struct UserProposalLibrary.UserProposal storage pointer,uint256)": "infinite",
+								"updateResponseList(struct UserProposalLibrary.UserProposal storage pointer,uint256,string memory)": "infinite"
+							}
+						},
+						"legacyAssembly": {
+							".code": [
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH #[$]",
+									"source": 0,
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH [$]",
+									"source": 0,
+									"value": "0000000000000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH",
+									"source": 0,
+									"value": "B"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "DUP3",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "DUP3",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "DUP3",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "CODECOPY",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "DUP1",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "MLOAD",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "BYTE",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH",
+									"source": 0,
+									"value": "73"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "EQ",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH [tag]",
+									"source": 0,
+									"value": "1"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "JUMPI",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH",
+									"source": 0,
+									"value": "4E487B7100000000000000000000000000000000000000000000000000000000"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "MSTORE",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH",
+									"source": 0,
+									"value": "4"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "MSTORE",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH",
+									"source": 0,
+									"value": "24"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "REVERT",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "tag",
+									"source": 0,
+									"value": "1"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "JUMPDEST",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "ADDRESS",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH",
+									"source": 0,
+									"value": "0"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "MSTORE",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "PUSH",
+									"source": 0,
+									"value": "73"
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "DUP2",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "MSTORE8",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "DUP3",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "DUP2",
+									"source": 0
+								},
+								{
+									"begin": 60,
+									"end": 1142,
+									"name": "RETURN",
+									"source": 0
+								}
+							],
+							".data": {
+								"0": {
+									".auxdata": "a264697066735822122079b16bd090f9e03f6964265fa12ef728dceb276ee1e4403e4016ec793f72e72364736f6c63430008070033",
+									".code": [
+										{
+											"begin": 60,
+											"end": 1142,
+											"name": "PUSHDEPLOYADDRESS",
+											"source": 0
+										},
+										{
+											"begin": 60,
+											"end": 1142,
+											"name": "ADDRESS",
+											"source": 0
+										},
+										{
+											"begin": 60,
+											"end": 1142,
+											"name": "EQ",
+											"source": 0
+										},
+										{
+											"begin": 60,
+											"end": 1142,
+											"name": "PUSH",
+											"source": 0,
+											"value": "80"
+										},
+										{
+											"begin": 60,
+											"end": 1142,
+											"name": "PUSH",
+											"source": 0,
+											"value": "40"
+										},
+										{
+											"begin": 60,
+											"end": 1142,
+											"name": "MSTORE",
+											"source": 0
+										},
+										{
+											"begin": 60,
+											"end": 1142,
+											"name": "PUSH",
+											"source": 0,
+											"value": "0"
+										},
+										{
+											"begin": 60,
+											"end": 1142,
+											"name": "DUP1",
+											"source": 0
+										},
+										{
+											"begin": 60,
+											"end": 1142,
+											"name": "REVERT",
+											"source": 0
+										}
+									]
+								}
+							}
+						},
+						"methodIdentifiers": {}
+					},
+					"metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"Library/UserProposalLibrary.sol\":\"UserProposalLibrary\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"Library/UserProposalLibrary.sol\":{\"keccak256\":\"0x099d949323f463d21e56b9d0bf8ad76c82060deebc8b41affc6fb6216fb5ea8c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ae01d10b9cf930794fe51b815ff7dc1f5bf436785b857a8ca79d9a697131a0d6\",\"dweb:/ipfs/QmS8b4EuA2Kj2BA2qiziyQLA88BLHHpmmGm6G7gJfFgZZk\"]}},\"version\":1}",
+					"storageLayout": {
+						"storage": [],
+						"types": null
+					},
+					"userdoc": {
+						"kind": "user",
+						"methods": {},
+						"version": 1
+					}
+				}
+			}
+		},
+		"sources": {
+			"Library/UserProposalLibrary.sol": {
+				"ast": {
+					"absolutePath": "Library/UserProposalLibrary.sol",
+					"exportedSymbols": {
+						"UserProposalLibrary": [
+							95
+						]
+					},
+					"id": 96,
+					"license": "MIT",
+					"nodeType": "SourceUnit",
+					"nodes": [
+						{
+							"id": 1,
+							"literals": [
+								"solidity",
+								"^",
+								"0.8",
+								".0"
+							],
+							"nodeType": "PragmaDirective",
+							"src": "33:23:0"
+						},
+						{
+							"abstract": false,
+							"baseContracts": [],
+							"contractDependencies": [],
+							"contractKind": "library",
+							"fullyImplemented": true,
+							"id": 95,
+							"linearizedBaseContracts": [
+								95
+							],
+							"name": "UserProposalLibrary",
+							"nameLocation": "68:19:0",
+							"nodeType": "ContractDefinition",
+							"nodes": [
+								{
+									"canonicalName": "UserProposalLibrary.UserProposal",
+									"id": 22,
+									"members": [
+										{
+											"constant": false,
+											"id": 3,
+											"mutability": "mutable",
+											"name": "proposalCount",
+											"nameLocation": "154:13:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 22,
+											"src": "146:21:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint128",
+												"typeString": "uint128"
+											},
+											"typeName": {
+												"id": 2,
+												"name": "uint128",
+												"nodeType": "ElementaryTypeName",
+												"src": "146:7:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint128",
+													"typeString": "uint128"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 5,
+											"mutability": "mutable",
+											"name": "responseCount",
+											"nameLocation": "205:13:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 22,
+											"src": "197:21:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_uint128",
+												"typeString": "uint128"
+											},
+											"typeName": {
+												"id": 4,
+												"name": "uint128",
+												"nodeType": "ElementaryTypeName",
+												"src": "197:7:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint128",
+													"typeString": "uint128"
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 9,
+											"mutability": "mutable",
+											"name": "proposalCreated",
+											"nameLocation": "284:15:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 22,
+											"src": "259:40:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_mapping$_t_uint128_$_t_uint256_$",
+												"typeString": "mapping(uint128 => uint256)"
+											},
+											"typeName": {
+												"id": 8,
+												"keyType": {
+													"id": 6,
+													"name": "uint128",
+													"nodeType": "ElementaryTypeName",
+													"src": "267:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint128",
+														"typeString": "uint128"
+													}
+												},
+												"nodeType": "Mapping",
+												"src": "259:24:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_mapping$_t_uint128_$_t_uint256_$",
+													"typeString": "mapping(uint128 => uint256)"
+												},
+												"valueType": {
+													"id": 7,
+													"name": "uint",
+													"nodeType": "ElementaryTypeName",
+													"src": "278:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 13,
+											"mutability": "mutable",
+											"name": "proposalResponsed",
+											"nameLocation": "369:17:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 22,
+											"src": "344:42:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_mapping$_t_uint128_$_t_uint256_$",
+												"typeString": "mapping(uint128 => uint256)"
+											},
+											"typeName": {
+												"id": 12,
+												"keyType": {
+													"id": 10,
+													"name": "uint128",
+													"nodeType": "ElementaryTypeName",
+													"src": "352:7:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint128",
+														"typeString": "uint128"
+													}
+												},
+												"nodeType": "Mapping",
+												"src": "344:24:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_mapping$_t_uint128_$_t_uint256_$",
+													"typeString": "mapping(uint128 => uint256)"
+												},
+												"valueType": {
+													"id": 11,
+													"name": "uint",
+													"nodeType": "ElementaryTypeName",
+													"src": "363:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 17,
+											"mutability": "mutable",
+											"name": "proposalAnswer",
+											"nameLocation": "454:14:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 22,
+											"src": "430:38:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
+												"typeString": "mapping(uint256 => string)"
+											},
+											"typeName": {
+												"id": 16,
+												"keyType": {
+													"id": 14,
+													"name": "uint",
+													"nodeType": "ElementaryTypeName",
+													"src": "438:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"nodeType": "Mapping",
+												"src": "430:23:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
+													"typeString": "mapping(uint256 => string)"
+												},
+												"valueType": {
+													"id": 15,
+													"name": "string",
+													"nodeType": "ElementaryTypeName",
+													"src": "446:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_string_storage_ptr",
+														"typeString": "string"
+													}
+												}
+											},
+											"visibility": "internal"
+										},
+										{
+											"constant": false,
+											"id": 21,
+											"mutability": "mutable",
+											"name": "responsedProposal",
+											"nameLocation": "522:17:0",
+											"nodeType": "VariableDeclaration",
+											"scope": 22,
+											"src": "500:39:0",
+											"stateVariable": false,
+											"storageLocation": "default",
+											"typeDescriptions": {
+												"typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+												"typeString": "mapping(uint256 => bool)"
+											},
+											"typeName": {
+												"id": 20,
+												"keyType": {
+													"id": 18,
+													"name": "uint",
+													"nodeType": "ElementaryTypeName",
+													"src": "508:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"nodeType": "Mapping",
+												"src": "500:21:0",
+												"typeDescriptions": {
+													"typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+													"typeString": "mapping(uint256 => bool)"
+												},
+												"valueType": {
+													"id": 19,
+													"name": "bool",
+													"nodeType": "ElementaryTypeName",
+													"src": "516:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bool",
+														"typeString": "bool"
+													}
+												}
+											},
+											"visibility": "internal"
+										}
+									],
+									"name": "UserProposal",
+									"nameLocation": "101:12:0",
+									"nodeType": "StructDefinition",
+									"scope": 95,
+									"src": "94:456:0",
+									"visibility": "public"
+								},
+								{
+									"body": {
+										"id": 48,
+										"nodeType": "Block",
+										"src": "651:126:0",
+										"statements": [
+											{
+												"expression": {
+													"id": 35,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"lValueRequested": false,
+													"nodeType": "UnaryOperation",
+													"operator": "++",
+													"prefix": false,
+													"src": "662:20:0",
+													"subExpression": {
+														"expression": {
+															"id": 32,
+															"name": "self",
+															"nodeType": "Identifier",
+															"overloadedDeclarations": [],
+															"referencedDeclaration": 25,
+															"src": "662:4:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+																"typeString": "struct UserProposalLibrary.UserProposal storage pointer"
+															}
+														},
+														"id": 34,
+														"isConstant": false,
+														"isLValue": true,
+														"isPure": false,
+														"lValueRequested": true,
+														"memberName": "proposalCount",
+														"nodeType": "MemberAccess",
+														"referencedDeclaration": 3,
+														"src": "662:18:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_uint128",
+															"typeString": "uint128"
+														}
+													},
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint128",
+														"typeString": "uint128"
+													}
+												},
+												"id": 36,
+												"nodeType": "ExpressionStatement",
+												"src": "662:20:0"
+											},
+											{
+												"expression": {
+													"id": 44,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"lValueRequested": false,
+													"leftHandSide": {
+														"baseExpression": {
+															"expression": {
+																"id": 37,
+																"name": "self",
+																"nodeType": "Identifier",
+																"overloadedDeclarations": [],
+																"referencedDeclaration": 25,
+																"src": "693:4:0",
+																"typeDescriptions": {
+																	"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+																	"typeString": "struct UserProposalLibrary.UserProposal storage pointer"
+																}
+															},
+															"id": 41,
+															"isConstant": false,
+															"isLValue": true,
+															"isPure": false,
+															"lValueRequested": false,
+															"memberName": "proposalCreated",
+															"nodeType": "MemberAccess",
+															"referencedDeclaration": 9,
+															"src": "693:20:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_mapping$_t_uint128_$_t_uint256_$",
+																"typeString": "mapping(uint128 => uint256)"
+															}
+														},
+														"id": 42,
+														"indexExpression": {
+															"expression": {
+																"id": 39,
+																"name": "self",
+																"nodeType": "Identifier",
+																"overloadedDeclarations": [],
+																"referencedDeclaration": 25,
+																"src": "714:4:0",
+																"typeDescriptions": {
+																	"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+																	"typeString": "struct UserProposalLibrary.UserProposal storage pointer"
+																}
+															},
+															"id": 40,
+															"isConstant": false,
+															"isLValue": true,
+															"isPure": false,
+															"lValueRequested": false,
+															"memberName": "proposalCount",
+															"nodeType": "MemberAccess",
+															"referencedDeclaration": 3,
+															"src": "714:18:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_uint128",
+																"typeString": "uint128"
+															}
+														},
+														"isConstant": false,
+														"isLValue": true,
+														"isPure": false,
+														"lValueRequested": true,
+														"nodeType": "IndexAccess",
+														"src": "693:40:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_uint256",
+															"typeString": "uint256"
+														}
+													},
+													"nodeType": "Assignment",
+													"operator": "=",
+													"rightHandSide": {
+														"id": 43,
+														"name": "_proposalId",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 27,
+														"src": "736:11:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_uint256",
+															"typeString": "uint256"
+														}
+													},
+													"src": "693:54:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"id": 45,
+												"nodeType": "ExpressionStatement",
+												"src": "693:54:0"
+											},
+											{
+												"expression": {
+													"hexValue": "74727565",
+													"id": 46,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": true,
+													"kind": "bool",
+													"lValueRequested": false,
+													"nodeType": "Literal",
+													"src": "765:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bool",
+														"typeString": "bool"
+													},
+													"value": "true"
+												},
+												"functionReturnParameters": 31,
+												"id": 47,
+												"nodeType": "Return",
+												"src": "758:11:0"
+											}
+										]
+									},
+									"id": 49,
+									"implemented": true,
+									"kind": "function",
+									"modifiers": [],
+									"name": "updateProposalList",
+									"nameLocation": "565:18:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 28,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 25,
+												"mutability": "mutable",
+												"name": "self",
+												"nameLocation": "605:4:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 49,
+												"src": "584:25:0",
+												"stateVariable": false,
+												"storageLocation": "storage",
+												"typeDescriptions": {
+													"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+													"typeString": "struct UserProposalLibrary.UserProposal"
+												},
+												"typeName": {
+													"id": 24,
+													"nodeType": "UserDefinedTypeName",
+													"pathNode": {
+														"id": 23,
+														"name": "UserProposal",
+														"nodeType": "IdentifierPath",
+														"referencedDeclaration": 22,
+														"src": "584:12:0"
+													},
+													"referencedDeclaration": 22,
+													"src": "584:12:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+														"typeString": "struct UserProposalLibrary.UserProposal"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 27,
+												"mutability": "mutable",
+												"name": "_proposalId",
+												"nameLocation": "616:11:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 49,
+												"src": "611:16:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 26,
+													"name": "uint",
+													"nodeType": "ElementaryTypeName",
+													"src": "611:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "583:45:0"
+									},
+									"returnParameters": {
+										"id": 31,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 30,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 49,
+												"src": "646:4:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												},
+												"typeName": {
+													"id": 29,
+													"name": "bool",
+													"nodeType": "ElementaryTypeName",
+													"src": "646:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bool",
+														"typeString": "bool"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "645:6:0"
+									},
+									"scope": 95,
+									"src": "556:221:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "internal"
+								},
+								{
+									"body": {
+										"id": 93,
+										"nodeType": "Block",
+										"src": "901:234:0",
+										"statements": [
+											{
+												"expression": {
+													"id": 64,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"lValueRequested": false,
+													"nodeType": "UnaryOperation",
+													"operator": "++",
+													"prefix": false,
+													"src": "912:20:0",
+													"subExpression": {
+														"expression": {
+															"id": 61,
+															"name": "self",
+															"nodeType": "Identifier",
+															"overloadedDeclarations": [],
+															"referencedDeclaration": 52,
+															"src": "912:4:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+																"typeString": "struct UserProposalLibrary.UserProposal storage pointer"
+															}
+														},
+														"id": 63,
+														"isConstant": false,
+														"isLValue": true,
+														"isPure": false,
+														"lValueRequested": true,
+														"memberName": "responseCount",
+														"nodeType": "MemberAccess",
+														"referencedDeclaration": 5,
+														"src": "912:18:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_uint128",
+															"typeString": "uint128"
+														}
+													},
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint128",
+														"typeString": "uint128"
+													}
+												},
+												"id": 65,
+												"nodeType": "ExpressionStatement",
+												"src": "912:20:0"
+											},
+											{
+												"expression": {
+													"id": 73,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"lValueRequested": false,
+													"leftHandSide": {
+														"baseExpression": {
+															"expression": {
+																"id": 66,
+																"name": "self",
+																"nodeType": "Identifier",
+																"overloadedDeclarations": [],
+																"referencedDeclaration": 52,
+																"src": "945:4:0",
+																"typeDescriptions": {
+																	"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+																	"typeString": "struct UserProposalLibrary.UserProposal storage pointer"
+																}
+															},
+															"id": 70,
+															"isConstant": false,
+															"isLValue": true,
+															"isPure": false,
+															"lValueRequested": false,
+															"memberName": "proposalResponsed",
+															"nodeType": "MemberAccess",
+															"referencedDeclaration": 13,
+															"src": "945:22:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_mapping$_t_uint128_$_t_uint256_$",
+																"typeString": "mapping(uint128 => uint256)"
+															}
+														},
+														"id": 71,
+														"indexExpression": {
+															"expression": {
+																"id": 68,
+																"name": "self",
+																"nodeType": "Identifier",
+																"overloadedDeclarations": [],
+																"referencedDeclaration": 52,
+																"src": "968:4:0",
+																"typeDescriptions": {
+																	"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+																	"typeString": "struct UserProposalLibrary.UserProposal storage pointer"
+																}
+															},
+															"id": 69,
+															"isConstant": false,
+															"isLValue": true,
+															"isPure": false,
+															"lValueRequested": false,
+															"memberName": "responseCount",
+															"nodeType": "MemberAccess",
+															"referencedDeclaration": 5,
+															"src": "968:18:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_uint128",
+																"typeString": "uint128"
+															}
+														},
+														"isConstant": false,
+														"isLValue": true,
+														"isPure": false,
+														"lValueRequested": true,
+														"nodeType": "IndexAccess",
+														"src": "945:42:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_uint256",
+															"typeString": "uint256"
+														}
+													},
+													"nodeType": "Assignment",
+													"operator": "=",
+													"rightHandSide": {
+														"id": 72,
+														"name": "_proposalId",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 54,
+														"src": "990:11:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_uint256",
+															"typeString": "uint256"
+														}
+													},
+													"src": "945:56:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"id": 74,
+												"nodeType": "ExpressionStatement",
+												"src": "945:56:0"
+											},
+											{
+												"expression": {
+													"id": 81,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"lValueRequested": false,
+													"leftHandSide": {
+														"baseExpression": {
+															"expression": {
+																"id": 75,
+																"name": "self",
+																"nodeType": "Identifier",
+																"overloadedDeclarations": [],
+																"referencedDeclaration": 52,
+																"src": "1012:4:0",
+																"typeDescriptions": {
+																	"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+																	"typeString": "struct UserProposalLibrary.UserProposal storage pointer"
+																}
+															},
+															"id": 78,
+															"isConstant": false,
+															"isLValue": true,
+															"isPure": false,
+															"lValueRequested": false,
+															"memberName": "proposalAnswer",
+															"nodeType": "MemberAccess",
+															"referencedDeclaration": 17,
+															"src": "1012:19:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_mapping$_t_uint256_$_t_string_storage_$",
+																"typeString": "mapping(uint256 => string storage ref)"
+															}
+														},
+														"id": 79,
+														"indexExpression": {
+															"id": 77,
+															"name": "_proposalId",
+															"nodeType": "Identifier",
+															"overloadedDeclarations": [],
+															"referencedDeclaration": 54,
+															"src": "1032:11:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_uint256",
+																"typeString": "uint256"
+															}
+														},
+														"isConstant": false,
+														"isLValue": true,
+														"isPure": false,
+														"lValueRequested": true,
+														"nodeType": "IndexAccess",
+														"src": "1012:32:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_string_storage",
+															"typeString": "string storage ref"
+														}
+													},
+													"nodeType": "Assignment",
+													"operator": "=",
+													"rightHandSide": {
+														"id": 80,
+														"name": "_hash",
+														"nodeType": "Identifier",
+														"overloadedDeclarations": [],
+														"referencedDeclaration": 56,
+														"src": "1047:5:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_string_memory_ptr",
+															"typeString": "string memory"
+														}
+													},
+													"src": "1012:40:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_string_storage",
+														"typeString": "string storage ref"
+													}
+												},
+												"id": 82,
+												"nodeType": "ExpressionStatement",
+												"src": "1012:40:0"
+											},
+											{
+												"expression": {
+													"id": 89,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": false,
+													"lValueRequested": false,
+													"leftHandSide": {
+														"baseExpression": {
+															"expression": {
+																"id": 83,
+																"name": "self",
+																"nodeType": "Identifier",
+																"overloadedDeclarations": [],
+																"referencedDeclaration": 52,
+																"src": "1063:4:0",
+																"typeDescriptions": {
+																	"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+																	"typeString": "struct UserProposalLibrary.UserProposal storage pointer"
+																}
+															},
+															"id": 86,
+															"isConstant": false,
+															"isLValue": true,
+															"isPure": false,
+															"lValueRequested": false,
+															"memberName": "responsedProposal",
+															"nodeType": "MemberAccess",
+															"referencedDeclaration": 21,
+															"src": "1063:22:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_mapping$_t_uint256_$_t_bool_$",
+																"typeString": "mapping(uint256 => bool)"
+															}
+														},
+														"id": 87,
+														"indexExpression": {
+															"id": 85,
+															"name": "_proposalId",
+															"nodeType": "Identifier",
+															"overloadedDeclarations": [],
+															"referencedDeclaration": 54,
+															"src": "1086:11:0",
+															"typeDescriptions": {
+																"typeIdentifier": "t_uint256",
+																"typeString": "uint256"
+															}
+														},
+														"isConstant": false,
+														"isLValue": true,
+														"isPure": false,
+														"lValueRequested": true,
+														"nodeType": "IndexAccess",
+														"src": "1063:35:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_bool",
+															"typeString": "bool"
+														}
+													},
+													"nodeType": "Assignment",
+													"operator": "=",
+													"rightHandSide": {
+														"hexValue": "74727565",
+														"id": 88,
+														"isConstant": false,
+														"isLValue": false,
+														"isPure": true,
+														"kind": "bool",
+														"lValueRequested": false,
+														"nodeType": "Literal",
+														"src": "1101:4:0",
+														"typeDescriptions": {
+															"typeIdentifier": "t_bool",
+															"typeString": "bool"
+														},
+														"value": "true"
+													},
+													"src": "1063:42:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bool",
+														"typeString": "bool"
+													}
+												},
+												"id": 90,
+												"nodeType": "ExpressionStatement",
+												"src": "1063:42:0"
+											},
+											{
+												"expression": {
+													"hexValue": "74727565",
+													"id": 91,
+													"isConstant": false,
+													"isLValue": false,
+													"isPure": true,
+													"kind": "bool",
+													"lValueRequested": false,
+													"nodeType": "Literal",
+													"src": "1123:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bool",
+														"typeString": "bool"
+													},
+													"value": "true"
+												},
+												"functionReturnParameters": 60,
+												"id": 92,
+												"nodeType": "Return",
+												"src": "1116:11:0"
+											}
+										]
+									},
+									"id": 94,
+									"implemented": true,
+									"kind": "function",
+									"modifiers": [],
+									"name": "updateResponseList",
+									"nameLocation": "794:18:0",
+									"nodeType": "FunctionDefinition",
+									"parameters": {
+										"id": 57,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 52,
+												"mutability": "mutable",
+												"name": "self",
+												"nameLocation": "834:4:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 94,
+												"src": "813:25:0",
+												"stateVariable": false,
+												"storageLocation": "storage",
+												"typeDescriptions": {
+													"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+													"typeString": "struct UserProposalLibrary.UserProposal"
+												},
+												"typeName": {
+													"id": 51,
+													"nodeType": "UserDefinedTypeName",
+													"pathNode": {
+														"id": 50,
+														"name": "UserProposal",
+														"nodeType": "IdentifierPath",
+														"referencedDeclaration": 22,
+														"src": "813:12:0"
+													},
+													"referencedDeclaration": 22,
+													"src": "813:12:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_struct$_UserProposal_$22_storage_ptr",
+														"typeString": "struct UserProposalLibrary.UserProposal"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 54,
+												"mutability": "mutable",
+												"name": "_proposalId",
+												"nameLocation": "845:11:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 94,
+												"src": "840:16:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_uint256",
+													"typeString": "uint256"
+												},
+												"typeName": {
+													"id": 53,
+													"name": "uint",
+													"nodeType": "ElementaryTypeName",
+													"src": "840:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_uint256",
+														"typeString": "uint256"
+													}
+												},
+												"visibility": "internal"
+											},
+											{
+												"constant": false,
+												"id": 56,
+												"mutability": "mutable",
+												"name": "_hash",
+												"nameLocation": "872:5:0",
+												"nodeType": "VariableDeclaration",
+												"scope": 94,
+												"src": "858:19:0",
+												"stateVariable": false,
+												"storageLocation": "memory",
+												"typeDescriptions": {
+													"typeIdentifier": "t_string_memory_ptr",
+													"typeString": "string"
+												},
+												"typeName": {
+													"id": 55,
+													"name": "string",
+													"nodeType": "ElementaryTypeName",
+													"src": "858:6:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_string_storage_ptr",
+														"typeString": "string"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "812:66:0"
+									},
+									"returnParameters": {
+										"id": 60,
+										"nodeType": "ParameterList",
+										"parameters": [
+											{
+												"constant": false,
+												"id": 59,
+												"mutability": "mutable",
+												"name": "",
+												"nameLocation": "-1:-1:-1",
+												"nodeType": "VariableDeclaration",
+												"scope": 94,
+												"src": "896:4:0",
+												"stateVariable": false,
+												"storageLocation": "default",
+												"typeDescriptions": {
+													"typeIdentifier": "t_bool",
+													"typeString": "bool"
+												},
+												"typeName": {
+													"id": 58,
+													"name": "bool",
+													"nodeType": "ElementaryTypeName",
+													"src": "896:4:0",
+													"typeDescriptions": {
+														"typeIdentifier": "t_bool",
+														"typeString": "bool"
+													}
+												},
+												"visibility": "internal"
+											}
+										],
+										"src": "895:6:0"
+									},
+									"scope": 95,
+									"src": "785:350:0",
+									"stateMutability": "nonpayable",
+									"virtual": false,
+									"visibility": "internal"
+								}
+							],
+							"scope": 96,
+							"src": "60:1082:0",
+							"usedErrors": []
+						}
+					],
+					"src": "33:1109:0"
+				},
+				"id": 0
+			}
+		}
+	}
+}

@@ -1,0 +1,195 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "mintAndburn",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "mintAndburn",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"balanceOf(address)": {
+					"details": "See {IERC20-balanceOf}."
+				},
+				"decimals()": {
+					"details": "Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless this function is overridden; NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}."
+				},
+				"name()": {
+					"details": "Returns the name of the token."
+				},
+				"symbol()": {
+					"details": "Returns the symbol of the token, usually a shorter version of the name."
+				},
+				"totalSupply()": {
+					"details": "See {IERC20-totalSupply}."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"QvToken/QvToken.sol": "QVtoken"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"QvToken/Context.sol": {
+			"keccak256": "0x81d5fc973a522c8909d60be6a201869d46aa47b030b8813f60616404628c2b94",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9755b505799e622d964a843a8ed1fd60fedffca230178e5cb95ae9280df4dcd2",
+				"dweb:/ipfs/QmRkhUYUUgRZ2QYJjmtQct2ubyYwS3bdUMhbuFYM12VfYn"
+			]
+		},
+		"QvToken/ERC20.sol": {
+			"keccak256": "0x11d93dd306b9501a7253367f9bb8aa4e9065f6fdadc666b3b91262206f12aaaa",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://04b6f2e2b694b95359c5aa6099cc409706c3b405cca3ac54e006439d85bfe982",
+				"dweb:/ipfs/QmbQgozzRiUBWRggxEFRD4XdWPHjHiZ5pG1nUThiVNMWpb"
+			]
+		},
+		"QvToken/IERC20.sol": {
+			"keccak256": "0xa8f3bd9674923d17ca6276aa5d043ccc7f98afff63f1000e252dee36d4b2c160",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://10aff2af714a37372171ed0d22704760c3d41d95d29c9e84f2a3b9f706491d4f",
+				"dweb:/ipfs/QmXFdyb7AngqoT6LU7Kz5sz4m3z7GpLdkbQ9wGn5gfFCyX"
+			]
+		},
+		"QvToken/IERC20Metadata.sol": {
+			"keccak256": "0x94dc88716e92464d240916e16167a8a900f88a2a954fb23cd2ac7f8f96d4d1b4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ad787a2de87b357623f979896b283138de1b491859c55c03ea19e5b3f85196fc",
+				"dweb:/ipfs/QmRgyyXYMDTkwejZMpcDgmE3kgPQKkfvHGHDeunXCgTMJr"
+			]
+		},
+		"QvToken/QvToken.sol": {
+			"keccak256": "0x439f06b76c81a031f8e65926b295874d822bc5c68226e6a12ca5814ef6025861",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b4ecfa4d6ee18a1350e3f09e053100010e46d782087b1deeb8adb624016d165a",
+				"dweb:/ipfs/QmeCuXPKRaU1YvpBDFzoSdHYw1y6YHi5QLc8HUNPwbmCyW"
+			]
+		}
+	},
+	"version": 1
+}

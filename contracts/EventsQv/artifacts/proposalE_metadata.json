@@ -1,0 +1,102 @@
+{
+	"compiler": {
+		"version": "0.8.7+commit.e28d00a7"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "description",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string[]",
+						"name": "_options",
+						"type": "string[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "votingTimeInHours",
+						"type": "uint256"
+					}
+				],
+				"name": "ProposalCreated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "voter",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "ProposalID",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256[]",
+						"name": "_tokens",
+						"type": "uint256[]"
+					}
+				],
+				"name": "VoteCasted",
+				"type": "event"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"EventsQv/EventsProposal.sol": "proposalE"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"EventsQv/EventsProposal.sol": {
+			"keccak256": "0xe87996c2d23872bbb5c0e71f8f26bcff76f70ad09ebbccf27fe7dd9830d65b22",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0f2dc29164da72bb4837e92b3f9f4fb8d016f0ed100586d4dd8256ff284350e1",
+				"dweb:/ipfs/QmfSJawxWyPtbEE1JTFgycbUrj7h7XsxiT8rxBxGGS14K3"
+			]
+		}
+	},
+	"version": 1
+}
